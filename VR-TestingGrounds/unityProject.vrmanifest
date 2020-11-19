@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.vrtestinggrounds.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\mitch\\Desktop\\Classwork\\VR Independent Study\\VR-TestingGrounds\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "VR-TestingGrounds [Testing]"
+        }
+      }
+    }
+  ]
+}
