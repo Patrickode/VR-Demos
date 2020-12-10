@@ -6960,8 +6960,8 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   minGestureVelocity: 1
-  maxBulletVelocity: 8
-  shootVelMultiplier: 4
+  maxBulletVelocity: 10
+  shootVelMultiplier: 8
   bulletPrefab: {fileID: 3541091010459969935, guid: d678063974a50fc47a1b8cd0a1a16eb3,
     type: 3}
   bulletSpawnPosRef: {fileID: 1503361125}

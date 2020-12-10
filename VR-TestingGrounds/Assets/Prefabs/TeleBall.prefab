@@ -145,8 +145,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  rigBod: {fileID: 1133454304484969745}
+  returnInput:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  returnSource: 1
   ignoreLayers: 08000000
-  teleFadeLength: 0
+  teleFadeLength: 0.25
 --- !u!114 &1133454304484969750
 MonoBehaviour:
   m_ObjectHideFlags: 0

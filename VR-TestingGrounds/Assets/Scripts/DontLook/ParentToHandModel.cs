@@ -6,9 +6,17 @@ using Valve.VR.InteractionSystem;
 public class ParentToHandModel : MonoBehaviour
 {
     [SerializeField] private Hand hand = null;
+    private bool parented = false;
 
-    private void Start()
+    private void Update()
     {
-        transform.parent = hand.mainRenderModel.transform;
+        if (!parented)
+        {
+            if (hand && hand.mainRenderModel)
+            {
+                transform.parent = hand.mainRenderModel.transform;
+                parented = true;
+            }
+        }
     }
 }

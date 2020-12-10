@@ -31,9 +31,10 @@ public class TeleBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Damageable"))
         {
             Vector3 otherPosition = collision.transform.position;
+            float otherYScale = collision.transform.localScale.y;
             Destroy(collision.gameObject);
 
-            if (shooterObj) { shooterObj.transform.position = otherPosition; }
+            if (shooterObj) { shooterObj.transform.position = otherPosition - Vector3.one * otherYScale; }
         }
 
         Destroy(gameObject);

@@ -8,17 +8,57 @@ using Valve.VR.InteractionSystem;
 public class TeleBall : MonoBehaviour
 {
     [SerializeField] private Player player = null;
+    [SerializeField] private Rigidbody rigBod = null;
+    [SerializeField] private SteamVR_Action_Boolean returnInput = null;
+    [SerializeField] private SteamVR_Input_Sources returnSource = SteamVR_Input_Sources.LeftHand;
     [SerializeField] private int[] ignoreLayers = null;
     [Space(10)]
     [SerializeField] private float teleFadeLength = 0.25f;
 
+    private bool teleOnColl = false;
     private bool teleFade = false;
+    private Vector3 initialOffsetFromPlayer;
+    private float initialXZDistanceFromPlayer;
 
     /// <summary>
     /// Whether the player should be teleported to the next collision. Set to true when 
     /// thrown, and reset to false on first collision.
     /// </summary>
-    public bool TeleportOnCollision { get; set; } = false;
+    public bool TeleportOnCollision
+    {
+        get { return teleOnColl; }
+        set
+        {
+            if (value) { rigBod.useGravity = true; }
+            teleOnColl = value;
+        }
+    }
+
+    private void Start()
+    {
+        initialOffsetFromPlayer = transform.position - player.transform.position;
+        initialXZDistanceFromPlayer = Vector3.Magnitude(new Vector3(initialOffsetFromPlayer.x, 0, initialOffsetFromPlayer.z));
+    }
+    private void Update()
+    {
+        if (returnInput.GetStateDown(returnSource))
+        {
+            rigBod.velocity = Vector3.zero;
+
+            if (returnInput.GetStateDown(returnSource))
+            {
+                transform.position = player.headCollider.transform.position +
+                    Vector3.ProjectOnPlane(player.bodyDirectionGuess, Vector3.up).normalized * initialXZDistanceFromPlayer;
+                rigBod.angularVelocity = Vector3.zero;
+                rigBod.useGravity = false;
+                TeleportOnCollision = false;
+            }
+        }
+        else if (returnInput.GetStateUp(returnSource))
+        {
+            rigBod.useGravity = true;
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -26,9 +66,13 @@ public class TeleBall : MonoBehaviour
 
         if (!IsIgnoredLayer(collision.gameObject.layer, ignoreLayers))
         {
-            player.transform.position = collision.GetContact(0).point;
-            TeleportOnCollision = false;
-            StartCoroutine(DoSteamVRFade());
+            var contactPoint = collision.GetContact(0);
+            if (Vector3.Dot(Vector3.up, contactPoint.normal) >= 0.25f)
+            {
+                player.transform.position = contactPoint.point;
+                TeleportOnCollision = false;
+                StartCoroutine(DoSteamVRFade());
+            }
         }
     }
 
