@@ -1600,7 +1600,7 @@ MonoBehaviour:
   appearPSystem: {fileID: 198220379293217532, guid: d8f0099df63275647a8bcf646df1ca00,
     type: 3}
   loseSource: {fileID: 1407092943}
-  loseClip: {fileID: 8300000, guid: cbaeb9fc9d73e294fa0f28ba649af9e0, type: 3}
+  loseClip: {fileID: 0}
   loseVolume: 0.5
   spawnRadiusRange: {x: 5, y: 8}
   startSpawnDelay: 3
@@ -1630,7 +1630,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 619285cec2634c548b2a45118e429709, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1

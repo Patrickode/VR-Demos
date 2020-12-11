@@ -45,7 +45,7 @@ public class EnemyDummy : MonoBehaviour
             if ((Target.position - transform.position).sqrMagnitude <= targetDistance * targetDistance)
             {
                 targetReached = true;
-                killAudioSource.PlayOneShot(killClip, killVolume);
+                if (killClip) { killAudioSource.PlayOneShot(killClip, killVolume); }
                 EnemyTargetReached?.Invoke();
             }
         }

@@ -24,20 +24,27 @@ public class Damageable : MonoBehaviour
     {
         damageParticles.Play();
         currentHealth -= damageTaken;
-        if (!dying)
+        if (damageClip)
         {
-            PlayWithRandomPitch(audioSource, damageClip, 1 - hitSoundPitchRange, 1 + hitSoundPitchRange, 0.25f);
-        }
-        else
-        {
-            PlayWithRandomPitch(audioSource, damageClip, 1, 1, 0.25f);
+            if (!dying)
+            {
+                PlayWithRandomPitch(
+                    audioSource, damageClip,
+                    1 - hitSoundPitchRange, 1 + hitSoundPitchRange,
+                    0.25f
+                );
+            }
+            else
+            {
+                PlayWithRandomPitch(audioSource, damageClip, 1, 1, 0.25f);
+            }
         }
 
         if (currentHealth <= 0 && currentHealth + damageTaken > 0)
         {
             rb.isKinematic = false;
             audioSource.pitch = 1;
-            audioSource.PlayOneShot(dieClip, 0.6f);
+            if (dieClip) { audioSource.PlayOneShot(dieClip, 0.6f); }
             StartCoroutine(SetDying());
         }
     }

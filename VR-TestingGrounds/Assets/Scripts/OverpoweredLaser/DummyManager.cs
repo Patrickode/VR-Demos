@@ -51,9 +51,12 @@ public class DummyManager : MonoBehaviour
     }
     private IEnumerator ReloadSceneDelayed()
     {
-        loseSource.Stop();
-        loseSource.PlayOneShot(loseClip, loseVolume);
-        yield return new WaitForSeconds(Mathf.Max(loseClip.length, reloadDelay));
+        if (loseClip)
+        {
+            loseSource.Stop();
+            loseSource.PlayOneShot(loseClip, loseVolume);
+            yield return new WaitForSeconds(Mathf.Max(loseClip.length, reloadDelay)); 
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

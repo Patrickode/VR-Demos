@@ -434,8 +434,8 @@ MonoBehaviour:
   rb: {fileID: 5525952009911593194}
   coll: {fileID: 5525952009911593188}
   audioSource: {fileID: 5525952009911593196}
-  hitClip: {fileID: 8300000, guid: 84ea55dcc5f00a44285019c5f4f50016, type: 3}
-  dieClip: {fileID: 8300000, guid: 2326461904c762e4bbda2327f56d1597, type: 3}
+  hitClip: {fileID: 0}
+  dieClip: {fileID: 0}
   hitSoundPitchRange: 0.25
 --- !u!198 &5525952009911593193
 ParticleSystem:
@@ -5227,7 +5227,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2326461904c762e4bbda2327f56d1597, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

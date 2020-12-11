@@ -128,8 +128,8 @@ MonoBehaviour:
   explodeLayer: 10
   explodeSystem: {fileID: 2908580788415593354}
   audioSource: {fileID: 1686451478118585543}
-  boomClip: {fileID: 8300000, guid: 8a8b890840d48a449943b7ce792e622a, type: 3}
-  truthClip: {fileID: 8300000, guid: f97b0117849a4cc4cb86f243eb7aef52, type: 3}
+  boomClip: {fileID: 0}
+  truthClip: {fileID: 0}
 --- !u!82 &1686451478118585543
 AudioSource:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8a8b890840d48a449943b7ce792e622a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

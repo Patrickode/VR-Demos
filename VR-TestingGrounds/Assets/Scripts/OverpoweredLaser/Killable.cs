@@ -37,10 +37,17 @@ public class Killable : MonoBehaviour
         damageParticles.Play();
 
         audioSource.pitch = UnityEngine.Random.Range(1 - hitSoundPitchRange, 1 + hitSoundPitchRange);
-        audioSource.PlayOneShot(hitClip, 0.25f);
-        audioSource.PlayOneShot(dieClip, 0.6f);
+        if (hitClip) { audioSource.PlayOneShot(hitClip, 0.25f); }
+        if (dieClip) { audioSource.PlayOneShot(dieClip, 0.6f); }
 
-        DestroyAfterMaxTime(damageParticles.main.duration, hitClip.length, dieClip.length);
+        if (hitClip && dieClip)
+        {
+            DestroyAfterMaxTime(damageParticles.main.duration, hitClip.length, dieClip.length);
+        }
+        else
+        {
+            DestroyAfterMaxTime(damageParticles.main.duration);
+        }
     }
 
     private IEnumerator DestroyAfterMaxTime(params float[] times)

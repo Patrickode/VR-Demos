@@ -26,8 +26,8 @@ public class ExplodeOnPunch : MonoBehaviour
         explodeSystem.gameObject.transform.parent = null;
         explodeSystem.Play();
 
-        audioSource.PlayOneShot(boomClip, 0.6f);
-        audioSource.PlayOneShot(truthClip, 0.5f);
+        if (boomClip) { audioSource.PlayOneShot(boomClip, 0.6f); }
+        if (truthClip) { audioSource.PlayOneShot(truthClip, 0.5f); }
 
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;

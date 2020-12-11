@@ -14,7 +14,7 @@ public class CashInCollectables : MonoBehaviour
     {
         if (other.CompareTag("Collectable") && other.TryGetComponent<Collectable>(out var collectable))
         {
-            collectAudio.PlayOneShot(collectAudioClip);
+            if (collectAudioClip) { collectAudio.PlayOneShot(collectAudioClip); }
             CollectableCollected?.Invoke(collectable.value);
             Destroy(collectable.gameObject);
         }
