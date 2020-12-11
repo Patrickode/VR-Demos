@@ -105,6 +105,22 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean NextScene
+        {
+            get
+            {
+                return SteamVR_Actions.default_NextScene;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean LastScene
+        {
+            get
+            {
+                return SteamVR_Actions.default_LastScene;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

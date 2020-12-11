@@ -5,10 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/BlockSword.unity
-    guid: 28d5a1b4078f187448a38f07d1ea5be1
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 11cf1e4eefbf7c344adb33b65510b216
+  - enabled: 1
+    path: Assets/Scenes/HeadTilt.unity
+    guid: ed9b16a383d203e4f91088edabac2c13
   - enabled: 1
     path: Assets/Scenes/PsychicSlingshot.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/BlockSword.unity
+    guid: 28d5a1b4078f187448a38f07d1ea5be1
+  - enabled: 1
+    path: Assets/Scenes/TeleBall.unity
+    guid: e4aedde6d89e2214e812dc6340885fb1
+  - enabled: 1
+    path: Assets/Scenes/DontLook.unity
+    guid: dd01b49f5a069ab4a8804b74bc85c9f3
+  - enabled: 1
+    path: Assets/Scenes/TeleShoot.unity
+    guid: 1c08d37c56d17e84996edea22cb79c63
+  - enabled: 1
+    path: Assets/Scenes/OverpoweredLaser.unity
+    guid: 31b7c70b60c7bed4b8ca66cc6c67694e
   m_configObjects: {}
